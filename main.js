@@ -11,6 +11,8 @@ let gravity = -0.00560
 let speed = 0;
 let ball2;
 let clicked = false
+let trashes = [];
+let colors = ["yellow", "red", "brown"]
 //let balls = [];
  
 
@@ -18,8 +20,6 @@ let clicked = false
 
 const pendulum = new Pendulum()
 const newBall = new GetABall(500, 30, 80)
-const trash1 = new Trash();
-//ball2 = new MakeSecondBall()
 
 function preload(){
     rope = 300;
@@ -31,8 +31,10 @@ function preload(){
 function setup(){
     console.log("setup")
     createCanvas(WIDTH, HEIGHT);
-    background(153)
-    trash1.setRandomPosition();
+    for (let i = 0; i < 3; i++){
+        trashes[i] = new Trash(300*(i+0.5), 800, 200,120)
+    }
+    // trash1.setRandomPosition();
     
 }
 
@@ -40,10 +42,13 @@ function draw(){
     
     pendulum.draw();
     newBall.update();
-    newBall.display()
-    trash1.draw();
-    //ball2.draw()
-    console.log(clicked);
+    newBall.display();
+
+    for (let i = 0; i < 3; i++){
+        fill(colors[i]);
+        trashes[i].draw()
+    }
+
     if(clicked){
         ball2.show()
     }   
@@ -51,10 +56,24 @@ function draw(){
 }
 
 function keyPressed(){
+    this.index = Math.floor(random(0, 3))
     if (key == ' ') {
       ball2 = new MakeSecondBall();
-    clicked = true;
+      clicked = true;
     }
+    score();
     
 }
 
+function score(){
+    let points = document.querySelector(".points").innerText;
+    let pointsNumber = Number(points)
+
+    // for (let i = 0; i < 3; i++) {
+     if (ball2.y > 800 && ball2.x > trashes[0].x && ball2.x < trashes[0].x + trashes[0].w){
+        pointsNumber++
+    }
+    // }
+    points = pointsNumber.toString();
+    
+}

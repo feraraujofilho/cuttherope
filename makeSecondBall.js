@@ -7,13 +7,13 @@ class MakeSecondBall {
 
         this.gravity = 1.5;
         this.velocity = -15;
-        this.height=1000
+        this.height=1000 
         }
         
     draw(){
         
     }
-
+       
     show() {
         if (this.x > 550){
             this.xSpeed = 4
@@ -21,7 +21,8 @@ class MakeSecondBall {
         if (this.x < 450){
            this.xSpeed = -4
         } 
-        fill(220, 20, 60)
+
+        fill(colors[index])
         ellipse(this.x, this.y, this.r * 2);
 
         this.velocity += this.gravity;
