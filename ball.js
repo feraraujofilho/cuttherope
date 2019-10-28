@@ -17,4 +17,5 @@ class GetABall {
             this.y = ballPosition.y;
         };
     }
+
 }
