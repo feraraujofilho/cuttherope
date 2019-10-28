@@ -4,7 +4,7 @@ class Pendulum {
   draw() {
     clear();
     // position of the ellipse
-    background(240, 248, 255);
+    background(backgroundImg);
     ballPosition.x = origin.x + rope * sin(angle);
     ballPosition.y = origin.y + rope * cos(angle);
 

@@ -1,6 +1,12 @@
 const WIDTH = 1000;
 const HEIGHT = WIDTH;
 
+let backgroundImg;
+let plasticTrash;
+let paperTrash;
+let glassTrash;
+// let organicTrash;
+let trashTypes = [];
 let origin;
 let ball;
 let rope;
@@ -24,13 +30,18 @@ function preload() {
   rope = 300;
   origin = { x: WIDTH / 2, y: 0 };
   ballPosition = { x: WIDTH / 2, y: rope };
+  backgroundImg = loadImage("/assets/simpsons-background.jpg");
+  plasticTrash = loadImage("/assets/plastic_trash.png");
+  paperTrash = loadImage("/assets/paper_trash.png");
+  glassTrash = loadImage("/assets/glass_trash.png");
+  trashTypes = [plasticTrash, paperTrash, glassTrash];
 }
 
 function setup() {
   console.log("setup");
   createCanvas(WIDTH, HEIGHT);
   for (let i = 0; i < 3; i++) {
-    trashes[i] = new Trash(300 * (i + 0.5), colors[i]);
+    trashes[i] = new Trash(300 * (i + 0.3), colors[i], trashTypes[i]);
   }
   indexColors = Math.floor(random(0, 3));
 
@@ -38,7 +49,6 @@ function setup() {
 }
 
 function draw() {
-
   pendulum.draw();
   newBall.update();
   newBall.display();
@@ -52,7 +62,7 @@ function draw() {
   if (clicked) {
     ball2.show();
     scoreCounter();
-      /* if (scored) {
+    /* if (scored) {
           score += 1;
           scored = false;
       } */
@@ -72,22 +82,21 @@ function keyPressed() {
 
 let scored = false;
 
-
-
 function scoreCounter() {
   let points = document.querySelector(".points");
 
   for (let i = 0; i < 3; i++) {
     if (ball2.color === trashes[i].color) {
       if (
-        ball2.y > 800 && ball2.y < 850 &&
+        ball2.y > 800 &&
+        ball2.y < 840 &&
         ball2.x > trashes[i].x + 5 &&
         ball2.x < trashes[i].x + trashes[i].w - 5
       ) {
-        score++
+        score++;
       }
     }
   }
-  
+
   points.innerText = score;
 }
