@@ -1,0 +1,26 @@
+.content {
+  display: flex;
+  position: absolute;
+  left: 1010px;
+  top: 300px;
+  /* flex-direction: row; */
+  align-items: center;
+  width: 100vw;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: right;
+  padding: 50px;
+}
+.sketch {
+  /* width: 1005px; */
+  background-color: red;
+}
+
+.timer {
+    padding: 50px;
+    border
+}

@@ -1,4 +1,4 @@
-class MakeSecondBall {
+class TrashStuff {
   constructor() {
     this.x = newBall.x;
     this.y = newBall.y;
@@ -7,12 +7,20 @@ class MakeSecondBall {
     this.gravity = 1.5;
     this.velocity = -15;
     this.color;
+    this.type;
+    this.angle = 0;
   }
 
   draw() {
-    this.color = colors[indexColors];
-    fill(colors[indexColors]);
-    ellipse(ballPosition.x, ballPosition.y, this.r * 2);
+    image(
+      itemPic,
+      ballPosition.x - stuffs[itemIndex].width * 1.2,
+      ballPosition.y + stuffs[itemIndex].height / 1.7,
+      stuffs[itemIndex].width / 1.7,
+      stuffs[itemIndex].height / 1.7
+    );
+    this.type = stuffs[itemIndex].type;
+    //
   }
 
   show() {
@@ -23,19 +31,27 @@ class MakeSecondBall {
       this.xSpeed = -4;
     }
 
-    fill(colors[indexColors]);
+    push();
 
-    ellipse(this.x, this.y, this.r * 2);
+    translate(
+      this.x + stuffs[itemIndex].width / 2 ,
+      this.y + stuffs[itemIndex].height / 2
+    );
+    rotate(this.angle);
+
+    image(
+      itemPic,
+      0 ,
+      0 ,
+      stuffs[itemIndex].width / 1.7,
+      stuffs[itemIndex].height / 1.7
+    );
 
     this.velocity += this.gravity;
     this.y += this.velocity;
     this.x += this.xSpeed;
-    /*  if (this.y >= height) {
-            this.y = height;
-            this.velocity *= -0.5;
-        } else {
-            this.x += this.xSpeed;
-        } */
+    this.angle += 0.6;
+    pop();
 
     if (this.x >= width || this.x <= 0) {
       this.xSpeed *= -1;

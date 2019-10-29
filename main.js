@@ -1,97 +1,63 @@
-const WIDTH = 1000;
-const HEIGHT = WIDTH;
-
-let backgroundImg;
-let plasticTrash;
-let paperTrash;
-let glassTrash;
-// let organicTrash;
-let trashTypes = [];
-let origin;
-let ball;
-let rope;
-let angle = 180;
-let aVel = 0.0;
-let aAcc = 0.0;
-let gravity = -0.0056;
-let speed = 0;
-let ball2;
-let clicked = false;
-let trashes = [];
-let colors = ["yellow", "red", "brown"];
-let score = 0;
-let indexColors;
-
 const pendulum = new Pendulum();
 const newBall = new GetABall(500, 30, 80);
-ball2 = new MakeSecondBall();
+thing = new TrashStuff();
+const level1 = new Levels();
+// level = 0;
+
 
 function preload() {
-  rope = 300;
-  origin = { x: WIDTH / 2, y: 0 };
-  ballPosition = { x: WIDTH / 2, y: rope };
-  backgroundImg = loadImage("/assets/simpsons-background.jpg");
-  plasticTrash = loadImage("/assets/plastic_trash.png");
-  paperTrash = loadImage("/assets/paper_trash.png");
-  glassTrash = loadImage("/assets/glass_trash.png");
-  trashTypes = [plasticTrash, paperTrash, glassTrash];
+    dataToLoad()
 }
 
 function setup() {
-  console.log("setup");
   createCanvas(WIDTH, HEIGHT);
-  for (let i = 0; i < 3; i++) {
-    trashes[i] = new Trash(300 * (i + 0.3), colors[i], trashTypes[i]);
-  }
-  indexColors = Math.floor(random(0, 3));
+      level1.setup();
 
-  // trash1.setRandomPosition();
+ 
 }
 
 function draw() {
-  pendulum.draw();
-  newBall.update();
-  newBall.display();
-  ball2.draw();
-
-  for (let i = 0; i < 3; i++) {
-    fill(colors[i]);
-    trashes[i].draw();
-  }
-
-  if (clicked) {
-    ball2.show();
-    scoreCounter();
-    /* if (scored) {
-          score += 1;
-          scored = false;
-      } */
-  }
-
-  console.log(score);
+if (level === 0){
+        text("Press Enter to Start" ,height / 2, width / 2)
 }
+
+else if (level === 1) {
+    level1.draw();
+    console.log(angle)
+  }
+
+  else if (level === 2){
+      level1.draw()
+  }
+
+
+}
+
+/* extra functions below */
 
 function keyPressed() {
-  // this.index = Math.floor(random(0, 3))
   if (key == " ") {
-    ball2 = new MakeSecondBall();
+    thing = new TrashStuff();
     clicked = true;
   }
-  //score();
+
+    if (keyCode === ENTER) {
+        level = 1
+    }
 }
 
-let scored = false;
+
 
 function scoreCounter() {
   let points = document.querySelector(".points");
 
-  for (let i = 0; i < 3; i++) {
-    if (ball2.color === trashes[i].color) {
+  for (let i = 0; i < 2; i++) {
+    if (thing.type === trashes[i].type) {
       if (
-        ball2.y > 800 &&
-        ball2.y < 840 &&
-        ball2.x > trashes[i].x + 5 &&
-        ball2.x < trashes[i].x + trashes[i].w - 5
+        thing.y > 860 &&
+        thing.y < 880 &&
+        thing.x > trashes[i].x + 10 &&
+        thing.x < trashes[i].x + trashes[i].w - 10
       ) {
         score++;
       }
@@ -100,3 +66,25 @@ function scoreCounter() {
 
   points.innerText = score;
 }
+
+window.onload = function() {
+  countdown(20); //begins from the 10tn minute
+};
+
+function countdown(startTime) {
+  let time = startTime;
+  let output = document.getElementById("time");
+  let timer = setInterval(tick, 1000);
+
+  function tick() {
+      if (level >0){
+          time--;
+          if (time <= 0) {
+              clearInterval(timer);
+          }
+          output.value = `${Math.floor(time / 60)}:${("0" + (time % 60)).slice(-2)}`;
+      }
+      }
+    
+}
+
