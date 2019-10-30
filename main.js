@@ -4,33 +4,22 @@ thing = new TrashStuff();
 const level1 = new Levels();
 // level = 0;
 
-
 function preload() {
-    dataToLoad()
+  dataToLoad();
 }
 
 function setup() {
   createCanvas(WIDTH, HEIGHT);
-      level1.setup();
-
- 
 }
 
 function draw() {
-if (level === 0){
-        text("Press Enter to Start" ,height / 2, width / 2)
-}
-
-else if (level === 1) {
+  if (level === 0) {
+    text("Press Enter to Start", height / 2, width / 2);
+  } else if (level === 1) {
     level1.draw();
-    console.log(angle)
+  } else if (level === 2) {
+    level1.draw();
   }
-
-  else if (level === 2){
-      level1.draw()
-  }
-
-
 }
 
 /* extra functions below */
@@ -41,12 +30,10 @@ function keyPressed() {
     clicked = true;
   }
 
-    if (keyCode === ENTER) {
-        level = 1
-    }
+  if (keyCode === ENTER) {
+    level = 1;
+  }
 }
-
-
 
 function scoreCounter() {
   let points = document.querySelector(".points");
@@ -54,12 +41,13 @@ function scoreCounter() {
   for (let i = 0; i < 2; i++) {
     if (thing.type === trashes[i].type) {
       if (
-        thing.y > 860 &&
-        thing.y < 880 &&
-        thing.x > trashes[i].x + 10 &&
-        thing.x < trashes[i].x + trashes[i].w - 10
+        thing.y > 760 &&
+        thing.y < 800 &&
+        thing.x > trashes[i].x &&
+        thing.x < trashes[i].x + trashes[i].w - 40
       ) {
         score++;
+        console.log(score);
       }
     }
   }
@@ -77,14 +65,14 @@ function countdown(startTime) {
   let timer = setInterval(tick, 1000);
 
   function tick() {
-      if (level >0){
-          time--;
-          if (time <= 0) {
-              clearInterval(timer);
-          }
-          output.value = `${Math.floor(time / 60)}:${("0" + (time % 60)).slice(-2)}`;
+    if (level > 0) {
+      time--;
+      if (time <= 0) {
+        clearInterval(timer);
       }
-      }
-    
+      output.value = `${Math.floor(time / 60)}:${("0" + (time % 60)).slice(
+        -2
+      )}`;
+    }
+  }
 }
-

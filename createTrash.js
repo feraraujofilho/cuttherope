@@ -16,8 +16,8 @@ class TrashStuff {
       itemPic,
       ballPosition.x - stuffs[itemIndex].width * 1.2,
       ballPosition.y + stuffs[itemIndex].height / 1.7,
-      stuffs[itemIndex].width / 1.7,
-      stuffs[itemIndex].height / 1.7
+      stuffs[itemIndex].width / 1.5,
+      stuffs[itemIndex].height / 1.5
     );
     this.type = stuffs[itemIndex].type;
     //

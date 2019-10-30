@@ -2,8 +2,8 @@ class TrashBins {
     constructor(x, type,img) {
         this.x = x;
         this.y = 800;
-        this.h = 300
-        this.w = 210
+        this.h = 400
+        this.w = 200
         this.type= type
         this.img = img
     }
