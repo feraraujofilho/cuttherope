@@ -9,11 +9,17 @@ function dataToLoad() {
     paperTrash = loadImage("/assets/paper_trash.png");
     glassTrash = loadImage("/assets/glass_trash.png");
     organicTrash = loadImage("/assets/organic_trash.png")
-    batteriesTrash = loadImage("/assets/batteries_trash.png")
     homer = loadImage("/assets/homer_1.png");
     homer2 = loadImage("/assets/homer_2.png");
     homer3 = loadImage("/assets/homer_3.png");
-    trashTypes = [plasticTrash, paperTrash, glassTrash, organicTrash, batteriesTrash];
+    homerGif = loadImage("/assets/homer_dancing.gif")
+    homerCrying = loadImage("/assets/homer_crying.gif")
+    homerCelebrating = loadImage("/assets/homer_celebrating.gif")
+    nextLevelImg = loadImage("/assets/next_level.png")
+    startPage = loadImage("/assets/start_page.png")
+    winnerPage = loadImage("/assets/you_win_page.png")
+    gameOverPage = loadImage("/assets/gameover_page.png")
+    trashTypes = [plasticTrash, paperTrash, glassTrash, organicTrash];
     itemPic = loadImage(stuffs[itemIndex].imgSrc);
     output = document.getElementById("time");
 }

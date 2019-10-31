@@ -1,7 +1,7 @@
 class GetABall {
   constructor(tempX, tempY, tempW) {
-    this.x = tempX; // x location of square
-    this.y = tempY; // y location of square
+    this.x = tempX; 
+    this.y = tempY; 
     this.w = tempW;
     this.state = "still";
     this.angle = 0;
@@ -10,6 +10,8 @@ class GetABall {
 
 
   display = function() {
+
+    // adjust the image if homer is throwing garbages
     if (keyIsDown(32)) {
       this.state = "action";
     } else {
