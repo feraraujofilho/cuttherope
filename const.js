@@ -45,13 +45,13 @@ let gameOver = false;
 
 // array for level===1
 let stuffs = [
-  {
+  /* {
     name: "Can Beer",
     type: "packages",
     imgSrc: "assets/can_beer.png",
     width: 80,
     height: 120
-  },
+  }, */
   {
     name: "Can Tomato",
     type: "packages",
@@ -65,8 +65,8 @@ let stuffs = [
     imgSrc: "assets/Cereal_box.png",
     width: 80,
     height: 120
-  },
-  {
+  }
+  /* {
     name: "Milk",
     type: "paper",
     imgSrc: "assets/milk.png",
@@ -79,7 +79,7 @@ let stuffs = [
     imgSrc: "assets/plastic_cup.png",
     width: 80,
     height: 140
-  }
+  } */
 ];
 
 // array for level === 2
@@ -91,13 +91,13 @@ let stuffs2 = [
     width: 80,
     height: 160
   },
-  {
+  /* {
     name: "Can Beer",
     type: "packages",
     imgSrc: "assets/can_beer.png",
     width: 80,
     height: 120
-  },
+  }, */
   {
     name: "Can Tomato",
     type: "packages",
@@ -111,7 +111,7 @@ let stuffs2 = [
     imgSrc: "assets/Cereal_box.png",
     width: 80,
     height: 120
-  },
+  } /* ,
   {
     name: "Milk",
     type: "paper",
@@ -125,7 +125,7 @@ let stuffs2 = [
     imgSrc: "assets/plastic_cup.png",
     width: 80,
     height: 140
-  }
+  } */
 ];
 
 let item;
