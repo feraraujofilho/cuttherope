@@ -35,6 +35,7 @@ let gameOverPage;
 let homerGif;
 let time = 20;
 let output = document.getElementById("time");
+let points = document.querySelector(".points");
 
 // array for level===1
 let stuffs = [
