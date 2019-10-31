@@ -2,6 +2,10 @@ function restart() {
     level1.level = 1;
     level = 0;
     playMode = true;
+    gameOver = false;
+    stop = true;
+    countdown();
+    time = 20;
 }
 
 function scoreCounter() {

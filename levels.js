@@ -45,7 +45,6 @@ class Levels {
         this.level = 2;
 
         if (this.level === 2) {
-          
           trashes = [];
 
           for (let i = 0; i < 3; i++) {
@@ -63,10 +62,11 @@ class Levels {
         }
 
         if (this.level === 3) {
-            stop = true;
-             countdown();
+          stop = true;
+          countdown();
           image(winnerPage, 0, 0, 1000, 1000);
-            image(homerCelebrating, width / 2 - 200, height / 2 - 200, 400, 400);
+          image(homerCelebrating, width / 2 - 200, height / 2 - 200, 400, 400);
+          setTimeout(() => restart(), 5000);
         }
       }
     }

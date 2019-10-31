@@ -1,13 +1,11 @@
-
-
 function preload() {
   dataToLoad();
 }
 
 function setup() {
-    var canvas = createCanvas(WIDTH, HEIGHT);
-    canvas.parent('sketch-holder');
-  countdown();
+  var canvas = createCanvas(WIDTH, HEIGHT);
+  canvas.parent("sketch-holder");
+  
 }
 
 function draw() {
@@ -27,7 +25,7 @@ function draw() {
     } else if (level === 3) {
       image(winnerPage, 0, 0, 1000, 1000);
       image(homerCelebrating, width / 2 - 200, height / 2 - 200, 400, 400);
-      setTimeout(restart, 5000);
+        setTimeout(() => restart(), 5000);
     }
   }
   if (!playMode) {
@@ -37,6 +35,7 @@ function draw() {
   if (gameOver) {
     image(gameOverPage, 0, 0, 1000, 1000);
     image(homerCrying, width / 2 - 200, height / 2 - 230, 400, 345);
+    setTimeout(() => restart(), 5000);
   }
 }
 
@@ -45,14 +44,18 @@ function draw() {
 function keyPressed() {
   // throw trashes
   if (key == " ") {
-    thing = new TrashStuff();
-    clicked = true;
+      if (level > 0){
+          thing = new TrashStuff();
+          clicked = true;
+      }
+    
   }
 
   // start game
   if (keyCode === ENTER) {
     level = 1;
     playMode = true;
+      countdown();
   }
 
   // start to play second level
