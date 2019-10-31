@@ -1,6 +1,5 @@
-/* .content {
+.content {
   display: flex;
-  position: absolute;
   left: 1010px;
   top: 300px;
   align-items: center;
@@ -14,11 +13,11 @@
   text-align: right;
   padding: 50px;
 }
+.sketch {
+  background-color: red;
+}
 
 .timer {
     padding: 50px;
     border
 }
- */
-
- 

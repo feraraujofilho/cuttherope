@@ -1,5 +1,9 @@
 
 function dataToLoad() {
+    pendulum = new Pendulum();
+    newBall = new GetABall(500, 30, 80);
+    thing = new TrashStuff();
+    level1 = new Levels();
     itemIndex = Math.floor(random(0, stuffs.length));
     rope = 200;
     origin = { x: WIDTH / 2, y: 0 };

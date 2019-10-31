@@ -8,101 +8,75 @@
     <script src="./libs/p5.min.js" type="text/javascript"></script>
     <!-- <script src="libs/p5.play.js" type="text/javascript"></script> -->
     <!-- <link rel="stylesheet" type="text/css" href="style.css" /> -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
     <style>
-      .sketch {
-        border-left: 1000px;
-      }
-
       body {
+        margin: 0;
         display: flex;
-        align-content: center;
+        flex-direction: column;
+
+        /* This centers our sketch horizontally. */
+        justify-content: center;
+
+        /* This centers our sketch vertically. */
+        align-items: center;
+        background-image: url("https://vignette.wikia.nocookie.net/simpsons/images/5/50/Wiki-background/revision/latest?cb=20111015160455")
       }
 
-      #defaultCanvas {
-        align-self: center;
+      .infos {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
       }
+
+    /* element.style {
+    width: 1000px;
+    height: 1000px;
+    border-bottom-left-radius: inherit;
+    border-radius: 30px;
+    border: 3px solid white;
+} */
     </style>
   </head>
   <body>
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-4">
-          <h1>Timer</h1>
-          <input
-            class="timer"
-            type="text"
-            id="time"
-            placeholder="Time"
-            style="text-align: center; font-size: 2em;"
-            disabled="true"
-          />
-        </div>
-        <div class="col-md-4">
-          <h1>Trash of the Titans</h1>
-          <h2>OBJECT</h2>
-        </div>
-        <div class="col-md-4">
-          <div class="counter">
-            <h1 class="title">Score</h1>
-            <h2 class="points">0</h2>
-          </div>
-        </div>
+    <div class="infos">
+      <div>
+        <h1>Timer</h1>
+        <input
+          class="timer"
+          type="text"
+          id="time"
+          placeholder="Time"
+          style="text-align: center; font-size: 2em;"
+          disabled="true"
+        />
       </div>
-      <div class="row">
-        <div class="col-md-4">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit odit
-            tempore blanditiis ipsa repellendus pariatur dolorem quia facilis, a
-            quos quas doloremque veritatis architecto nulla, tempora tenetur
-            totam ipsam ad!
-          </p>
-        </div>
-        <div class="col-md-4">
-          <div></div>
-        </div>
-        <div class="col-md-4">
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-            Perferendis ipsam praesentium dicta mollitia laudantium
-            reprehenderit explicabo eligendi velit quam. Soluta delectus quo
-            aliquid neque. Natus accusamus ratione veniam quo at.Accusamus
-            cumque libero, porro beatae distinctio iusto explicabo, provident
-            esse rem magni iste rerum vel corporis in obcaecati quasi! Alias,
-            similique quam corrupti tenetur amet minima molestiae error ipsa
-            repellat!
-          </p>
-        </div>
-        <script src="./preloadData.js"></script>
-        <script src="./levels.js"></script>
-        <script src="./const.js"></script>
-        <script src="./trashbins.js"></script>
-        <script src="./createTrash.js"></script>
-        <script src="./ball.js"></script>
-        <script src="./pendulum.js"></script>
-        <script class="sketch" src="./main.js"></script>
+      <div>
+        <h1>Trash of the Titans</h1>
+        <h2>OBJECT</h2>
       </div>
+      <div class="counter">
+        <h1 class="title">Score</h1>
+        <h2 class="points">0</h2>
+      </div>
+      <!-- <h3>
+            Help homer to separate garbage for recycling
+          </h3> -->
+      <!-- <p>
+            Score 3 points to pass the first level and accumulate 9 points to
+            win the game!
+          </p> -->
     </div>
-
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+    <div>
+      <script src="./preloadData.js"></script>
+      <script src="./restart_score_countdown.js"></script>
+      <script src="./levels.js"></script>
+      <script src="./const.js"></script>
+      <script src="./trashbins.js"></script>
+      <script src="./createTrash.js"></script>
+      <script src="./ball.js"></script>
+      <script src="./pendulum.js"></script>
+      <script class="sketch" src="./main.js"></script>
+    </div>
   </body>
 </html>

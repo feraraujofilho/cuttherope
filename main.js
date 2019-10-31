@@ -1,9 +1,4 @@
-const pendulum = new Pendulum();
-const newBall = new GetABall(500, 30, 80);
-thing = new TrashStuff();
-const level1 = new Levels();
-let playMode = true;
-let gameOver = false;
+
 
 function preload() {
   dataToLoad();
@@ -31,14 +26,16 @@ function draw() {
     } else if (level === 3) {
       image(winnerPage, 0, 0, 1000, 1000);
       image(homerCelebrating, width / 2 - 200, height / 2 - 200, 400, 400);
-    } else if (gameOver) {
-      image(gameOverPage, 0, 0, 1000, 1000);
-      image(homerCrying, width / 2 - 200, height / 2 - 230, 400, 345);
+      setTimeout(restart, 5000);
     }
   }
   if (!playMode) {
     image(nextLevelImg, 0, 0, 1000, 1000);
     image(homerGif, width / 2 - 280, height / 2 - 100);
+  }
+  if (gameOver) {
+    image(gameOverPage, 0, 0, 1000, 1000);
+    image(homerCrying, width / 2 - 200, height / 2 - 230, 400, 345);
   }
 }
 
@@ -68,74 +65,4 @@ function keyPressed() {
   if (keyCode === 82) {
     restart();
   }
-}
-
-function restart() {
-  level1.level = 1;
-  level = 0;
-  playMode = true;
-}
-
-function scoreCounter() {
-  //let points = document.querySelector(".points");
-
-  if (level1.level === 1) {
-    for (let i = 0; i < 2; i++) {
-      if (thing && thing.type === trashes[i].type) {
-        if (
-          thing.y > trashes[i].y &&
-          thing.y < trashes[i].y + 50 &&
-          thing.x + thing.width > trashes[i].x &&
-          thing.x + thing.width + thing.width < trashes[i].x + trashes[i].w - 20
-        ) {
-          score++;
-          console.log(score);
-        }
-      }
-    }
-  }
-
-  if (level1.level === 2) {
-    for (let i = 0; i < 3; i++) {
-      if (thing && thing.type === trashes[i].type) {
-        if (
-          thing.y > trashes[i].y &&
-          thing.y < trashes[i].y + 50 &&
-          thing.x + thing.width > trashes[i].x &&
-          thing.x + thing.width + thing.width < trashes[i].x + trashes[i].w - 20
-        ) {
-          score++;
-          console.log(score);
-        }
-      }
-    }
-  }
-
-  points.innerText = score;
-}
-
-let timer;
-
-function countdown() {
-  if (!stop) {
-    timer = setInterval(tick, 1000);
-
-    function tick() {
-      if (level === 1) {
-        time--;
-        if (time <= 0) {
-          clearInterval(timer);
-          gameOver = true;
-        }
-        output.value = `${time % 60}`;
-      }
-    }
-  }
-
-  if (stop) {
-    clearInterval(timer);
-    time = 30;
-    stop = false;
-  }
-  output.value = `${time % 60}`;
 }
