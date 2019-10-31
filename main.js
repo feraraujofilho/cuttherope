@@ -5,7 +5,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(WIDTH, HEIGHT);
+    var canvas = createCanvas(WIDTH, HEIGHT);
+    canvas.parent('sketch-holder');
   countdown();
 }
 
