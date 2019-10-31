@@ -39,7 +39,7 @@ let points = document.querySelector(".points");
 let timer;
 let pendulum;
 let newBall;
-let level1
+let level1;
 let playMode = true;
 let gameOver = false;
 
@@ -48,35 +48,35 @@ let stuffs = [
   {
     name: "Can Beer",
     type: "packages",
-    imgSrc: "/assets/can_beer.png",
+    imgSrc: "assets/can_beer.png",
     width: 80,
     height: 120
   },
   {
     name: "Can Tomato",
     type: "packages",
-    imgSrc: "/assets/can_tomato.png",
+    imgSrc: "assets/can_tomato.png",
     width: 80,
     height: 120
   },
   {
     name: "Cereal Box",
     type: "paper",
-    imgSrc: "/assets/Cereal_box.png",
+    imgSrc: "assets/Cereal_box.png",
     width: 80,
     height: 120
   },
   {
     name: "Milk",
     type: "paper",
-    imgSrc: "/assets/milk.png",
+    imgSrc: "assets/milk.png",
     width: 100,
     height: 100
   },
   {
     name: "Plastic Cup",
     type: "packages",
-    imgSrc: "/assets/plastic_cup.png",
+    imgSrc: "assets/plastic_cup.png",
     width: 80,
     height: 140
   }
@@ -87,42 +87,42 @@ let stuffs2 = [
   {
     name: "Bottle Bier",
     type: "glass",
-    imgSrc: "/assets/bottle_bier.png",
+    imgSrc: "assets/bottle_bier.png",
     width: 80,
     height: 160
   },
   {
     name: "Can Beer",
     type: "packages",
-    imgSrc: "/assets/can_beer.png",
+    imgSrc: "assets/can_beer.png",
     width: 80,
     height: 120
   },
   {
     name: "Can Tomato",
     type: "packages",
-    imgSrc: "/assets/can_tomato.png",
+    imgSrc: "assets/can_tomato.png",
     width: 80,
     height: 120
   },
   {
     name: "Cereal Box",
     type: "paper",
-    imgSrc: "/assets/Cereal_box.png",
+    imgSrc: "assets/Cereal_box.png",
     width: 80,
     height: 120
   },
   {
     name: "Milk",
     type: "paper",
-    imgSrc: "/assets/milk.png",
+    imgSrc: "assets/milk.png",
     width: 100,
     height: 100
   },
   {
     name: "Plastic Cup",
     type: "packages",
-    imgSrc: "/assets/plastic_cup.png",
+    imgSrc: "assets/plastic_cup.png",
     width: 80,
     height: 140
   }
